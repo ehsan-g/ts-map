@@ -9,11 +9,18 @@ export class Company {
   };
 
   constructor() {
-      this.companyName = faker.company.companyName();
-      this.catchPhrase = faker.company.catchPhrase();
-      this.location = {
-          lat: parseFloat(faker.address.latitude()),
-          lng: parseFloat(faker.address.longitude())
-      }
+    this.companyName = faker.company.companyName();
+    this.catchPhrase = faker.company.catchPhrase();
+    this.location = {
+      lat: parseFloat(faker.address.latitude()),
+      lng: parseFloat(faker.address.longitude()),
+    };
+  }
+  markerContent(): string {
+    return `
+    <div>
+      <h6> ${this.companyName}</h6>
+    </div>
+    `;
   }
 }

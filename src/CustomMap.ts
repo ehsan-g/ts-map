@@ -3,6 +3,7 @@ export interface Mappable {
     lat: number;
     lng: number;
   };
+  markerContent(): string;
 }
 
 // to limit functions used from google ap
@@ -31,7 +32,7 @@ export class CustomMap {
     });
     marker.addListener("click", () => {
       const infoWindow = new google.maps.InfoWindow({
-        content: "Hi This is Ehsan",
+        content: mappable.markerContent(),
       });
 
       infoWindow.open(this.googleMap, marker);
