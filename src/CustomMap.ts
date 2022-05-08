@@ -1,19 +1,17 @@
-import { User } from "./User";
-import { Company } from "./Company";
-
-interface MarkerType {
+export interface Mappable {
   location: {
     lat: number;
     lng: number;
   };
 }
+
 // to limit functions used from google ap
 export class CustomMap {
   private googleMap: google.maps.Map;
 
   constructor(divId: string) {
     // @types/googlemaps is responsible for allowing the following
-    new google.maps.Map(document.getElementById(divId), {
+   this.googleMap = new google.maps.Map(document.getElementById(divId), {
       zoom: 1,
       center: {
         lat: 0,
@@ -23,12 +21,12 @@ export class CustomMap {
   }
 
   // any argument that satisfy the interface
-  addMarker(markerType: MarkerType): void {
-    new google.maps.Marker({
+  addMarker(mappable: Mappable): void {
+    const marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
-        lat: markerType.location.lat,
-        lng: markerType.location.lng,
+        lat: mappable.location.lat,
+        lng: mappable.location.lng,
       },
     });
   }
