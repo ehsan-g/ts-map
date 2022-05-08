@@ -11,7 +11,7 @@ export class CustomMap {
 
   constructor(divId: string) {
     // @types/googlemaps is responsible for allowing the following
-   this.googleMap = new google.maps.Map(document.getElementById(divId), {
+    this.googleMap = new google.maps.Map(document.getElementById(divId), {
       zoom: 1,
       center: {
         lat: 0,
@@ -28,6 +28,13 @@ export class CustomMap {
         lat: mappable.location.lat,
         lng: mappable.location.lng,
       },
+    });
+    marker.addListener("click", () => {
+      const infoWindow = new google.maps.InfoWindow({
+        content: "Hi This is Ehsan",
+      });
+
+      infoWindow.open(this.googleMap, marker);
     });
   }
 }

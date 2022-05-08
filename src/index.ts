@@ -11,7 +11,3 @@ const customMap = new CustomMap("map");
 customMap.addMarker(user);
 customMap.addMarker(company);
 
-console.log(user);
-console.log(customMap.addMarker);
-console.log(customMap.addMarker(user));
-console.log(customMap.addMarker(company));
