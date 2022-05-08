@@ -8,6 +8,7 @@ export class User implements MarkerType {
     lat: number;
     lng: number;
   };
+  color: string;
 
   constructor() {
     this.name = faker.name.firstName();
@@ -15,6 +16,7 @@ export class User implements MarkerType {
       lat: parseFloat(faker.address.latitude()),
       lng: parseFloat(faker.address.longitude()),
     };
+    color: "red";
   }
   markerContent(): string {
     return "This One";

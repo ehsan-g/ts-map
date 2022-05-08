@@ -4,6 +4,7 @@ export interface MarkerType {
     lng: number;
   };
   markerContent(): string;
+  color: string;
 }
 
 // to limit functions used from google ap
