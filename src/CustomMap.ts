@@ -1,6 +1,12 @@
 import { User } from "./User";
 import { Company } from "./Company";
 
+interface MarkerType {
+  location: {
+    lat: number;
+    lng: number;
+  };
+}
 // to limit functions used from google ap
 export class CustomMap {
   private googleMap: google.maps.Map;
@@ -16,15 +22,14 @@ export class CustomMap {
     });
   }
 
-  addUserMarker(user: User) {
+  // any argument that satisfy the interface
+  addMarker(markerType: MarkerType): void {
     new google.maps.Marker({
       map: this.googleMap,
       position: {
-        lat: user.location.lat,
-        lng: user.location.lng,
+        lat: markerType.location.lat,
+        lng: markerType.location.lng,
       },
     });
   }
-
-  addCompanyMaker(company: Company) {}
 }
