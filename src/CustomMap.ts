@@ -1,4 +1,4 @@
-export interface Mappable {
+export interface MarkerType {
   location: {
     lat: number;
     lng: number;
@@ -22,17 +22,17 @@ export class CustomMap {
   }
 
   // any argument that satisfy the interface
-  addMarker(mappable: Mappable): void {
+  addMarker(markerType: MarkerType): void {
     const marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
-        lat: mappable.location.lat,
-        lng: mappable.location.lng,
+        lat: markerType.location.lat,
+        lng: markerType.location.lng,
       },
     });
     marker.addListener("click", () => {
       const infoWindow = new google.maps.InfoWindow({
-        content: mappable.markerContent(),
+        content: markerType.markerContent(),
       });
 
       infoWindow.open(this.googleMap, marker);

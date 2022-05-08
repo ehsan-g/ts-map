@@ -1,6 +1,8 @@
 import faker from "faker";
+import { MarkerType } from "./CustomMap";
 
-export class User {
+// implements help to follow the error easier to here
+export class User implements MarkerType {
   name: string;
   location: {
     lat: number;
