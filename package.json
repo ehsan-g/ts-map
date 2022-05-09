@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "global": "^4.4.0",
+    "jason-server": "^3.0.0",
+    "json-server": "^0.17.0"
+  }
+}

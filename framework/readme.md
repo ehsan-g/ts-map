@@ -1,5 +1,5 @@
 ### Requirements:
 
-1 - `yarn add global parcel-bundler`
-
-2 -  `$ parcel index.html`
+1 - `npm install -g parcel-bundler`
+2 - `npm install -g json-server`
+3 -  `$ parcel index.html`
